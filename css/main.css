@@ -1,0 +1,35 @@
+body {
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+}
+
+.main-title {
+    font-size: 5em;
+    color: white;
+    font-family: "Source Sans Pro";
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+#welcome-page {
+    display: none;
+    color: white;
+    font-family: "Source Sans Pro";
+}
+
+#error-page {
+    display: none;
+    color: white;
+    font-family: "Source Sans Pro";
+}
+
+#start-page {
+    color: white;
+    font-family: "Source Sans Pro";
+}
+
+h1 {
+    margin-top:0px !important;
+    margin-bottom:0px !important;
+}
