@@ -12,7 +12,7 @@ $(document).ready(function () {
 
 var retrieveData = function () {
     $.ajax({
-        url: 'https://script.googleusercontent.com/macros/echo?user_content_key=vNfpxircLqNTqp3E0SL8n7FHWFMhvODoe9uX3Jeeujnoz5btETaVI3uWlQFUs_zY8sTd64dSdORm50m6HCOG5LuTTuPOr5O_OJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHa1ZsYSbt7G4nMhEEDL32U4DxjO7V7yvmJPXJTBuCiTGh3rUPjpYM_V0PJJG7TIaKp8qKaos0Ar9PJpv1EzfNB2zG95ixg1Ju9KTaXqEycbTBHs_nfHv-wakO9Oe92mAFHq_uDj7qsXF0yz39XobvtEQQc09CumtDuA&lib=MbpKbbfePtAVndrs259dhPT7ROjQYJ8yx',
+        url: 'https://script.googleusercontent.com/macros/echo?user_content_key=0amoNlIV6gc21BapdcZyeaMw40xsBtMyaLG3u-GrTSpnKg6IXMQZ7A_eSPCUCWbmIrkpmsAZG-NOe6xKyDrYF-rkZMF_vCWAOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHa1ZsYSbt7G4nMhEEDL32U4DxjO7V7yvmJPXJTBuCiTGh3rUPjpYM_V0PJJG7TIaKp6myI78o9NC86WrdeeFbEqvTp3KCCDmpzBJIYT-ZdrtNoAKD_2nWLhB7mRe4EH6pyK_uDj7qsXF0yz39XobvtEQQc09CumtDuA&lib=MbpKbbfePtAVndrs259dhPT7ROjQYJ8yx',
         success: function (responseText) {
             var data = responseText.AttendanceList;
             console.log(data);
@@ -24,7 +24,7 @@ var retrieveData = function () {
     });
 }
 
-var welcomeFunction = function() {
+var welcomeFunction = function () {
     $("#error-page").hide("slide", {
         direction: "right",
     }, 1500);
@@ -49,7 +49,7 @@ var welcomeFunction = function() {
 };
 
 
-var errorFunction = function() {
+var errorFunction = function () {
     $("#welcome-page").hide("slide", {
         direction: "right",
     }, 1500);
@@ -89,6 +89,16 @@ $("#nric-control").keyup(function () {
     }
 });
 
-var sendStuff = function () {
-    console.log("supposed to send somewhere.")
+var script_url = "https://script.google.com/macros/s/AKfycbwz5grRQJ-4Dij2WKqfnSToK8NybcH7XPFxm0Q_fMkpSKR3LOBn/exec";
+
+// Make an AJAX call to Google Script
+function sendStuff() {
+    var name = $("#nric-control").val();
+    var url = script_url + "?name=" + name + "&action=insert";
+    var request = jQuery.ajax({
+        crossDomain: true,
+        url: url,
+        method: "GET",
+        dataType: "jsonp"
+    });
 }
