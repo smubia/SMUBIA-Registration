@@ -13,7 +13,16 @@ h1 {
 }
 
 .main-title {
-    font-size: 5em;
+    font-size: 3em;
+    color: white;
+    font-family: "Source Sans Pro";
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.main-title-2 {
+    font-size: 6em;
     color: white;
     font-family: "Source Sans Pro";
     text-transform: uppercase;
@@ -22,12 +31,13 @@ h1 {
 }
 
 #welcome-page {
-    display: none;
+        display: none;
     color: white;
     font-family: "Source Sans Pro";
     padding: 0px 180px;
     position: absolute;
     margin-top: 150px;
+    width: 100%;
 }
 
 #error-page {
@@ -37,6 +47,7 @@ h1 {
     padding: 0px 180px;
     position: absolute;
     margin-top: 150px;
+    width: 100%;
 }
 
 #start-page {
