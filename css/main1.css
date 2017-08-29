@@ -1,6 +1,7 @@
 body {
     background-image: url("../img/background.jpg");
     background-size: cover;
+    height: 100vh;
 }
 
 html {
@@ -31,7 +32,7 @@ h1 {
 }
 
 #welcome-page {
-        display: none;
+    display: none;
     color: white;
     font-family: "Source Sans Pro";
     padding: 0px 180px;
@@ -55,6 +56,7 @@ h1 {
     font-family: "Source Sans Pro";
     margin-top: 100px;
     position: absolute;
+    width: 100%;
 }
 
 .start-title-1 {
@@ -97,4 +99,14 @@ h1 {
     font-size: 3em;
     color: white;
     text-align: center;
+}
+
+
+/* Below 1280px */
+
+@media screen and (max-width: 1024px) {
+    body {
+        background-color: #3f3f3f !important;
+        background-image: none !important;
+    }
 }
