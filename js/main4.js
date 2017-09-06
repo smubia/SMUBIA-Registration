@@ -7,6 +7,10 @@ $(document).ready(function () {
     setInterval(function () {
         $("#nric-control").focus();
     }, 1000);
+
+    $("form").submit(function (e) {
+        e.preventDefault(e);
+    });
 });
 
 
@@ -37,8 +41,6 @@ var welcomeFunction = function () {
     }, 1500);
 
     setTimeout(function () {
-        $("#nric-control").val("");
-
         $("#welcome-page").hide("slide", {
             direction: "right"
         }, 1500);
@@ -63,8 +65,6 @@ var errorFunction = function () {
     }, 1500);
 
     setTimeout(function () {
-        $("#nric-control").val("");
-
         $("#error-page").hide("slide", {
             direction: "right"
         }, 1500);
@@ -80,22 +80,24 @@ var errorFunction = function () {
 $("#nric-control").keyup(function () {
     //console.log($("#nric-control").val());
     if ($("#nric-control").val().length == 9) {
-        sendStuff();
+        
         if (nricList.indexOf($("#nric-control").val().toUpperCase()) == -1) {
             errorFunction();
+            sendStuff($("#nric-control").val());
+            $("#nric-control").val("");
         } else {
             welcomeFunction();
+            sendStuff($("#nric-control").val());
+            $("#nric-control").val("");
             $(".welcome-name").text(nameList[nricList.indexOf($("#nric-control").val())]);
         }
-
     }
 });
 
 var script_url = "https://script.google.com/macros/s/AKfycbwz5grRQJ-4Dij2WKqfnSToK8NybcH7XPFxm0Q_fMkpSKR3LOBn/exec";
 
 // Make an AJAX call to Google Script
-function sendStuff() {
-    var nric = $("#nric-control").val();
+function sendStuff(nric) {
     var url = script_url + "?name=" + nric + "&action=insert";
     var request = jQuery.ajax({
         crossDomain: true,
