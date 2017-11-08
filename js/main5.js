@@ -80,16 +80,18 @@ var errorFunction = function () {
 $("#nric-control").keyup(function () {
     //console.log($("#nric-control").val());
     if ($("#nric-control").val().length == 9) {
-        
+        $(".welcome-name").text("");
         if (nricList.indexOf($("#nric-control").val().toUpperCase()) == -1) {
             errorFunction();
             sendStuff($("#nric-control").val());
             $("#nric-control").val("");
         } else {
+
+            $(".welcome-name").text(nameList[nricList.indexOf($("#nric-control").val())]);
             welcomeFunction();
             sendStuff($("#nric-control").val());
             $("#nric-control").val("");
-            $(".welcome-name").text(nameList[nricList.indexOf($("#nric-control").val())]);
+
         }
     }
 });
